@@ -5,7 +5,15 @@
 {% endblock %}
 
 {% block body%}
-  {%for nombre in nombres%}
-    <h1>{{nombre}}</h1>
-  {% endfor %}
+  <div class="content">
+    {%for categoria in categorias%}
+    <form action="index.html" method="post">
+      <label for="{{categoria.nombre}}">{{categoria.nombre}}</label>
+      <input type="checkbox" id="{{categoria.nombre}}" name="{{categoria.nombre}}" value="{{categoria.nombre}}">
+      <br>
+      {% endfor %}
+      <input type="submit" value="enviar">
+    </form>
+  </div>
+
 {% endblock %}

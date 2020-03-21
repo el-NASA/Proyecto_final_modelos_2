@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from flask_sqlalchemy import SQLAlchemy
 app = Flask(__name__)
 # conectamos con la BD
@@ -27,9 +27,21 @@ class Categoria(db.Model):
 nombres = ['accion', 'aventura']
 
 
-@app.route('/')
+@app.route('/', methods=['POST', 'GET'])
 def index():
-    return render_template("index.html", nombres=nombres)
+    categorias = Categoria.query.order_by(Categoria
+                                          .nombre).all()
+    render_template("index.html", categorias=categorias)
+    if request.method == 'POST':
+        c_escogidas = request.form['content']
+        return render_template("sugerencias.html")
+    else:
+        return render_template("index.html", categorias=categorias)
+
+
+@app.route('/sugerencias/')
+def sugerencias():
+    return render_template('sugerencias.html')
 
 
 if __name__ == '__main__':
