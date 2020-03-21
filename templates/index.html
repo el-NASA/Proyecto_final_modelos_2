@@ -1,0 +1,11 @@
+{% extends 'base.html'%}
+
+{% block head%}
+
+{% endblock %}
+
+{% block body%}
+  {%for nombre in nombres%}
+    <h1>{{nombre}}</h1>
+  {% endfor %}
+{% endblock %}
