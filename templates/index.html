@@ -7,12 +7,12 @@
 {% block body%}
   <div class="content">
     {%for categoria in categorias%}
-    <form action="index.html" method="post">
+    <form action="/" method="post">
       <label for="{{categoria.nombre}}">{{categoria.nombre}}</label>
-      <input type="checkbox" id="{{categoria.nombre}}" name="{{categoria.nombre}}" value="{{categoria.nombre}}">
+      <input type="checkbox" id="{{categoria.id}}" name="{{categoria.nombre}}">
       <br>
       {% endfor %}
-      <input type="submit" value="enviar">
+      <button type="submit" value="enviar">enviar</button>
     </form>
   </div>
 

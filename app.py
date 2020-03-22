@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 from flask_sqlalchemy import SQLAlchemy
 app = Flask(__name__)
 # conectamos con la BD
@@ -24,24 +24,33 @@ class Categoria(db.Model):
         return '<Categoria %r>' % self.id
 
 
-nombres = ['accion', 'aventura']
+generos_sel = []
 
 
 @app.route('/', methods=['POST', 'GET'])
 def index():
-    categorias = Categoria.query.order_by(Categoria
-                                          .nombre).all()
-    render_template("index.html", categorias=categorias)
+    categorias = Categoria.query.order_by(Categoria.nombre).all()
+
     if request.method == 'POST':
-        c_escogidas = request.form['content']
-        return render_template("sugerencias.html")
-    else:
-        return render_template("index.html", categorias=categorias)
+        generos_sel.clear()
+        req = request.form.to_dict().keys()
+        print(req)
+        for i in req:
+            generos_sel.append(i)
+
+        return redirect('/sugerencias')
+
+    return render_template("/index.html", categorias=categorias)
 
 
-@app.route('/sugerencias/')
+@app.route('/sugerencias')
 def sugerencias():
-    return render_template('sugerencias.html')
+    '''
+    for i in generos_sel:
+        print(i)
+    '''
+    c = list(set(generos_sel))
+    return render_template('sugerencias.html', generos_sel=c)
 
 
 if __name__ == '__main__':
