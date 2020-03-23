@@ -1,9 +1,23 @@
+from pyswip_bd import BD_prolog
 from flask import Flask, render_template, request, redirect
 from flask_sqlalchemy import SQLAlchemy
+from pyswip_bd import BD_prolog
+
 app = Flask(__name__)
 # conectamos con la BD
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
 db = SQLAlchemy(app)
+# conexion bd prolog
+BD_pg = BD_prolog()
+cats = BD_pg.getCategorias()
+all = BD_pg.getAll()
+
+
+def get_jgs(lista):
+    l = []
+    for i in lista:
+        l += all[i]
+    return list(set(l))
 
 
 class Juego(db.Model):
@@ -36,8 +50,6 @@ generos_sel = []
 
 @app.route('/', methods=['POST', 'GET'])
 def index():
-    categorias = Categoria.query.order_by(Categoria.nombre).all()
-
     if request.method == 'POST':
         generos_sel.clear()
         req = request.form.to_dict().keys()
@@ -47,14 +59,15 @@ def index():
 
         return redirect('/sugerencias')
 
-    return render_template("/index.html", categorias=categorias)
+    return render_template("/index.html", categorias=cats)
 
 
 @app.route('/sugerencias')
 def sugerencias():
 
     c = list(set(generos_sel))
-    return render_template('sugerencias.html', generos_sel=c)
+    j_r = get_jgs(c)
+    return render_template('sugerencias.html', juegos_rec=j_r)
 
 
 if __name__ == '__main__':

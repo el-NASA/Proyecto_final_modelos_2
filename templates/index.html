@@ -6,10 +6,10 @@
 
 {% block body%}
   <div class="content">
-    {%for categoria in categorias%}
+    {%for nom in categorias%}
     <form action="/" method="post">
-      <label for="{{categoria.nombre}}">{{categoria.nombre}}</label>
-      <input type="checkbox" id="{{categoria.nombre}}" name="{{categoria.nombre}}">
+      <label for="{{nom}}">{{nom}}</label>
+      <input type="checkbox" id="{{nom}}" name="{{nom}}">
       <br>
       {% endfor %}
       <button type="submit" value="enviar">enviar</button>
