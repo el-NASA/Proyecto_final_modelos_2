@@ -9,7 +9,7 @@
     {%for categoria in categorias%}
     <form action="/" method="post">
       <label for="{{categoria.nombre}}">{{categoria.nombre}}</label>
-      <input type="checkbox" id="{{categoria.id}}" name="{{categoria.nombre}}">
+      <input type="checkbox" id="{{categoria.nombre}}" name="{{categoria.nombre}}">
       <br>
       {% endfor %}
       <button type="submit" value="enviar">enviar</button>

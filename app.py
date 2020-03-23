@@ -7,21 +7,28 @@ db = SQLAlchemy(app)
 
 
 class Juego(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    nombre = db.Column(db.String(50), nullable=False)
+    nombre = db.Column(db.String(50), primary_key=True)
     # autores = db.Column()
     # ejecutable = = db.Column()
 
     def __repr__(self):
-        return '<Juego %r>' % self.id
+        return '<Juego %r>' % self.nombre
 
 
 class Categoria(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    nombre = db.Column(db.String(50), nullable=False)
+    nombre = db.Column(db.String(50), primary_key=True)
 
     def __repr__(self):
-        return '<Categoria %r>' % self.id
+        return '<Categoria %r>' % self.nombre
+
+
+class Juego_categoria(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    n_juego = db.Column(db.String(50), nullable=True)
+    n_categoria = db.Column(db.String(50), nullable=True)
+
+    def __repr__(self):
+        return '<id: %r | n_juego: %r | n_cat: %r>' % (self.id, self.n_juego, self.n_categoria)
 
 
 generos_sel = []
@@ -34,7 +41,7 @@ def index():
     if request.method == 'POST':
         generos_sel.clear()
         req = request.form.to_dict().keys()
-        print(req)
+        # print(req)
         for i in req:
             generos_sel.append(i)
 
@@ -45,10 +52,7 @@ def index():
 
 @app.route('/sugerencias')
 def sugerencias():
-    '''
-    for i in generos_sel:
-        print(i)
-    '''
+
     c = list(set(generos_sel))
     return render_template('sugerencias.html', generos_sel=c)
 
