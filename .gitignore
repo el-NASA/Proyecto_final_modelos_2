@@ -1,3 +1,5 @@
 env/
 __pycache__/
 consultas_bd.py
+juegos/
+BD_sqlalchemy/
