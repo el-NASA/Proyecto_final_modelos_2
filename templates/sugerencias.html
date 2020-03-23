@@ -9,7 +9,7 @@
     {%for juego in juegos_rec%}
     <h1>{{juego}}<br></h1>
     <p>
-      {{juegos[juego]['foto']}}<br>
+      <img src="{{juegos[juego]['foto']}}">"{{juegos[juego]['foto']}}"<br>
       <h4>descripcion: </h4><br>
       {{juegos[juego]['descripcion']}}<br>
       <a href="{{juegos[juego]['link']}}">Descargalo aquí!</a>
