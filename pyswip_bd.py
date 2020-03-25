@@ -60,6 +60,41 @@ class BD_prolog():
                 i), 'descripcion': self.getDescipciones(i)}
         return dict
 
+    def getUsuarios(self):
+        dict = {}
+        for soln in prolog.query("usuario(X,Y)"):
+            dict[soln["X"]] = {'password': soln["Y"]}
+        return dict
+
     def getJuegosUsuario(self, nombre):
-        lista = prolog.query("sug(%s,F)" % nombre)
-        return lista
+        aux1 = []
+        aux2 = []
+        aux3 = []
+        dict = {}
+        for soln in prolog.query("sug(%s,F)" % nombre):
+            aux1.append(soln["F"])
+        for i in aux1[0]:
+            aux2.append(i)
+        for i in range(0, len(aux2)):
+            aux3 = str(aux2[i]).replace(',', '', 1).replace(
+                '(', '').replace(')', '').split(',')
+            dict[aux3[0]] = aux3[1]
+        return dict
+
+    # funcion para establecer la informacion de cada uno de los usuarios
+    def setInfoUsuarios(self):
+        usuarios = self.getUsuarios()
+        for nom in usuarios.keys():
+            juegos = self.getJuegosUsuario(nom)
+            usuarios[nom]['juegos'] = juegos
+        return usuarios
+
+
+'''
+from pyswip import Prolog
+prolog = Prolog()
+prolog.consult("BD.pl")
+from pyswip_bd import BD_prolog
+BD = BD_prolog()
+BD.setInfoUsuarios()
+'''
