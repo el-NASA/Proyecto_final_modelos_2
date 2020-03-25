@@ -1,0 +1,14 @@
+{% extends 'base.html'%}
+
+{% block head%}
+
+    <meta charset="UTF-8">
+    <script src="{{url_for('static', filename = 'galaga/log.js')}}"></script>
+    <link href="{{url_for('static', filename = 'galaga/estilo.css')}}" rel="stylesheet">
+{% endblock %}
+    
+{% block body%}
+    <canvas  width="1100" height="100" id="ct"></canvas>
+    <canvas width="1100" height="600" id="lienzo" ></canvas>
+    <button id="jugar" onclick="darclick();">Jugar de nuevo</button> 
+{% endblock %}

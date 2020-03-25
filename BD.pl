@@ -1,18 +1,20 @@
-juego(galaga_palomas,accion, 'https://bit.ly/2UaX8no','../static/img/galaga-palomas.png','juego al estilo del clasico Galaga, en el cual nuestro personaje tiene que evitar ser cagado por palomas...').
+juego(galaga_palomas,accion, 'galaga','../static/img/galaga-palomas.png','juego al estilo del clasico Galaga, en el cual nuestro personaje tiene que evitar ser cagado por palomas...').
 
-juego(galaga_palomas,disparos, 'https://bit.ly/2UaX8no','../static/img/galaga-palomas.png','juego al estilo del clasico Galaga, en el cual nuestro personaje tiene que evitar ser cagado por palomas...').
+juego(galaga_palomas,disparos, 'galaga','../static/img/galaga-palomas.png','juego al estilo del clasico Galaga, en el cual nuestro personaje tiene que evitar ser cagado por palomas...').
 
-juego(covid_runner, plataformas, 'https://bit.ly/2UcROzN','../static/img/covid-runner.png','Corre y salta para evitar un contagio del coronavirus...').
+juego(covid_runner, plataformas, 'covid_runner','../static/img/covid-runner.png','Corre y salta para evitar un contagio del coronavirus...').
 
-juego(saltarin, plataformas, 'https://bit.ly/2J5QNDo','../static/img/saltarin.png','juego al estilo de flappy-bird, en el cual nuestro personaje principal es mario \ny este tiene que evitar chocarse con los gigantes misiles!').
+juego(saltarin, plataformas, 'saltarin','../static/img/saltarin.png','juego al estilo de flappy-bird, en el cual nuestro personaje principal es mario \ny este tiene que evitar chocarse con los gigantes misiles!').
 
-juego(saltarin, deporte, 'https://bit.ly/2J5QNDo','../static/img/saltarin.png','juego al estilo de flappy-bird, en el cual nuestro personaje principal es mario \ny este tiene que evitar chocarse con los gigantes misiles!').
+juego(saltarin, deporte, 'saltarin','../static/img/saltarin.png','juego al estilo de flappy-bird, en el cual nuestro personaje principal es mario \ny este tiene que evitar chocarse con los gigantes misiles!').
 
-juego(busca_flores,puzzle,'https://bit.ly/2WCChuJ','../static/img/busca-flores.png','juego inspirado en el conocido buscaminas, pero tenemos que evitar tocar las flores').
+juego(busca_flores,puzzle,'busca_flores','../static/img/busca-flores.png','juego inspirado en el conocido buscaminas, pero tenemos que evitar tocar las flores').
 
-juego(caza_calaveras,accion,'https://bit.ly/2Ue2Zbu','../static/img/caza-calaveras.png','juego en el cual nuestro personaje principal tiene que perseguir y cazar todas las calaberas que pueda!').
+juego(caza_calaveras,accion,'caza','../static/img/caza-calaveras.png','juego en el cual nuestro personaje principal tiene que perseguir y cazar todas las calaberas que pueda!').
 
-juego(caza_calaveras,aventura,'https://bit.ly/2Ue2Zbu','../static/img/caza-calaveras.png','juego en el cual nuestro personaje principal tiene que perseguir y cazar todas las calaberas que pueda!').
+juego(caza_calaveras,aventura,'caza','../static/img/caza-calaveras.png','juego en el cual nuestro personaje principal tiene que perseguir y cazar todas las calaberas que pueda!').
+
+juego(2048,puzzle,'j_2048','../static/img/2048.png','Juego que reta nuestra habilidad para mantener las casillas vacias sumando numeros iguales').
 
 
 usuario(jordy,jordy).

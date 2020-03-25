@@ -59,3 +59,7 @@ class BD_prolog():
             dict[i] = {'link': self.getLink(i), 'foto': self.getFoto(
                 i), 'descripcion': self.getDescipciones(i)}
         return dict
+
+    def getJuegosUsuario(self, nombre):
+        lista = prolog.query("sug(%s,F)" % nombre)
+        return lista
