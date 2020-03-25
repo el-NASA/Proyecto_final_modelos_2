@@ -10,7 +10,7 @@ l_juegos = BD_pg.getJuegosSC()  # obtiene todos los juegos de la bd
 # obtiene un diccionario en el que cada juego tiene sus otros datos de la bd
 juegos = BD_pg.setDescipciones()
 # obtiene un diccionario con el nombre, contraseña y los juegos que juega
-info_usuarios = BD.setInfoUsuarios()
+info_usuarios = BD_pg.setInfoUsuarios()
 
 
 # esta función se usa en la ruta principal para hacer la lista de las carategorias escogidas
