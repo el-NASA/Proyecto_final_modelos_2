@@ -1,0 +1,28 @@
+{% extends 'base.html'%}
+
+{% block header %}Profile{%endblock%}
+
+{% block body %}
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h1>Profile</h1>
+      <hr>
+      <div class="card">
+        <div class="card-body">
+          <h4>{{ username}}</h4>
+          <hr>
+          {% if user %}
+          <p><strong>{{user}}</strong></p>
+          <p><em>hola</em></p>
+          {% else%}
+          <p>usuario no encontrado</p>
+          {% endif %}
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

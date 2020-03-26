@@ -93,5 +93,14 @@ def sugerencias():
     return render_template('sugerencias.html', juegos_rec=j_r, juegos=juegos)
 
 
+@app.route("/profile/<username>")
+def profile(username):
+    user = None
+    if username in info_usuarios:
+        user = info_usuarios[username]
+        print(info_usuarios[username])
+    return render_template("profile.html", username=username, user=user)
+
+
 if __name__ == '__main__':
     app.run(debug=True)
