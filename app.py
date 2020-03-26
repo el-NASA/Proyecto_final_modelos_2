@@ -70,6 +70,20 @@ def index():
 
     return render_template("/index.html", categorias=cats)
 
+
+@app.route('/categorias', methods=['POST', 'GET'])
+def categorias():
+    if request.method == 'POST':
+        generos_sel.clear()  # limpia la lista de las categorias
+        req = request.form.to_dict().keys()
+        for i in req:  # llena la lista con la selección
+            generos_sel.append(i)
+
+        return redirect('/sugerencias')
+
+    return render_template("categorias.html", categorias=cats)
+
+
 # se define la ruta de sugerencias
 
 
