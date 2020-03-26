@@ -20,10 +20,10 @@ juego(2048,puzzle,'j_2048','../static/img/2048.PNG','Juego que reta nuestra habi
 usuario(jordy,jordy).
 usuario(nasa,nasa).
 
-juegoUsu(jordy,saltarin).
+
 juegoUsu(jordy,galaga_palomas).
 juegoUsu(jordy,covid_runner).
-juegoUsu(jordy,saltarin).
+
 
 juegoUsu(nasa,saltarin).
 juegoUsu(nasa,saltarin).
