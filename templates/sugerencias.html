@@ -10,10 +10,10 @@
     {%for juego in juegos_rec%}
     <h1>{{juego}}<br></h1>
     <p>
-      <img src="{{juegos[juego]['foto']}}" width="400"  alt="problema carga imagen" /><br/>   
+      <img src="{{juegos[juego]['foto']}}" width="400"  alt="problema carga imagen" /><br/>
       <h4>descripcion: </h4><br>
       {{juegos[juego]['descripcion']}}<br>
-      <a href="{{juegos[juego]['link']}}">Jugar!</a>
+      <a href="/{{juegos[juego]['link']}}">Jugar!</a>
     </p>
     {% endfor %}
   </div>
