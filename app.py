@@ -58,33 +58,17 @@ def covid_runner():
     return render_template('/covid_runner.html')
 
 
-@app.route('/', methods=['POST', 'GET'])
-def login():
-    if request.method == 'POST':
-        generos_sel.clear()  # limpia la lista de las categorias
-        req = request.form.to_dict().keys()
-        for i in req:  # llena la lista con la selección
-            generos_sel.append(i)
-        return redirect(url_for('sugerencias'))
-        
-    return render_template('/login.html')
-
 @app.route('/register')
 def register():
-    return render_template('/register.html')    
+    return render_template('/register.html')
 
 
-"""@app.route('/', methods=['POST', 'GET'])
+@app.route('/', methods=['POST', 'GET'])
 def index():
     if request.method == 'POST':
-        generos_sel.clear()  # limpia la lista de las categorias
-        req = request.form.to_dict().keys()
-        for i in req:  # llena la lista con la selección
-            generos_sel.append(i)
+        return redirect('/categorias')
 
-        return redirect('/sugerencias')
-
-    return render_template("/index.html", categorias=cats)"""
+    return render_template("/login.html", categorias=cats)
 
 
 @app.route('/categorias', methods=['POST', 'GET'])
@@ -94,9 +78,7 @@ def categorias():
         req = request.form.to_dict().keys()
         for i in req:  # llena la lista con la selección
             generos_sel.append(i)
-
         return redirect('/sugerencias')
-
     return render_template("categorias.html", categorias=cats)
 
 
