@@ -1,4 +1,16 @@
-body{
-  margin: 0;
-  font-family: sans-serif;
+body {
+	background: #EFEFBB;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to right, rgb(80, 68, 196), #EFEFBB);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right, rgb(80, 68, 196), #EFEFBB); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.content{
+  margin: 1rem;
+  padding: 1rem;
+  border: none;
+  text-align: center;
+  color: white;
+}
+
+a:hover {
+  color: white;
 }

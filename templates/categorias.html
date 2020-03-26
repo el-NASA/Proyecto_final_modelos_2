@@ -1,21 +1,21 @@
 {% extends 'base.html'%}
 
 {% block head%}
-
+  <link rel="stylesheet" href="{{url_for('static', filename='css/main.css')}}">
+  <link rel="stylesheet" href="{{url_for('static', filename='css/styles.css')}}">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 {% endblock %}
 
 {% block body%}
   <div class="content">
     {%for nom in categorias%}
-    <form action="/categorias" method="post">
-      <label for="{{nom}}">{{nom}}</label>
-      <input type="checkbox" id="{{nom}}" name="{{nom}}">
-      <br>
-      {% endfor %}
-      <button type="submit" value="enviar">enviar</button>
-    </form>
-    <div>
-
+    <div class="form-check">
+      <form action="/categorias" method="post">
+        <input type="checkbox" class="form-check-input" id="{{nom}}" name="{{nom}}">
+        <label class="form-check-label" for="{{nom}}">{{nom}}</label>
     </div>
+      {% endfor %}
+      <button type="submit" class="btn btn-primary btn-sm" value="enviar">Enviar</button>
+    </form>
   </div>
 {% endblock %}
