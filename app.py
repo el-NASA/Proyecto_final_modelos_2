@@ -34,8 +34,18 @@ def galaga():
     return render_template('/galaga.html')
 
 
+@app.route('/profile/galaga')
+def galagap():
+    return render_template('/galaga.html')
+
+
 @app.route('/caza')
 def caza():
+    return render_template('/caza.html')
+
+
+@app.route('/profile/caza')
+def cazap():
     return render_template('/caza.html')
 
 
@@ -44,8 +54,18 @@ def saltarin():
     return render_template('/saltarin.html')
 
 
+@app.route('/profile/saltarin')
+def saltarinp():
+    return render_template('/saltarin.html')
+
+
 @app.route('/j_2048')
 def j_2048():
+    return render_template('/j_2048.html')
+
+
+@app.route('/profile/j_2048')
+def j_2048p():
     return render_template('/j_2048.html')
 
 
@@ -54,8 +74,18 @@ def busca_flores():
     return render_template('/busca_flores.html')
 
 
+@app.route('/profile/busca_flores')
+def busca_floresp():
+    return render_template('/busca_flores.html')
+
+
 @app.route('/covid_runner')
 def covid_runner():
+    return render_template('/covid_runner.html')
+
+
+@app.route('/profile/covid_runner')
+def covid_runnerp():
     return render_template('/covid_runner.html')
 
 
@@ -116,7 +146,8 @@ def profile(username):
         for i in info_usuarios[username]['juegos']:
             if info_usuarios[username]['juegos'][i] != ' 0':
                 lista.append(i)
-    return render_template('sugerencias.html', juegos_rec=lista, juegos=juegos)
+        print(juegos[lista[0]])
+    return render_template('sugerenciasU.html', juegos_rec=lista, juegos=juegos)
 
 
 if __name__ == '__main__':
