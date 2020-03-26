@@ -12,8 +12,9 @@ juegos = BD_pg.setDescipciones()
 # obtiene un diccionario con el nombre, contraseña y los juegos que juega
 info_usuarios = BD_pg.setInfoUsuarios()
 
-
 # esta función se usa en la ruta principal para hacer la lista de las carategorias escogidas
+
+
 def get_jgs(lista):
     l = []
     for i in lista:
@@ -65,10 +66,22 @@ def register():
 
 @app.route('/', methods=['POST', 'GET'])
 def index():
+    user = None
     if request.method == 'POST':
-        return redirect('/categorias')
-
-    return render_template("/login.html", categorias=cats)
+        if request.method == 'POST':
+            if request.form['username'] in list(info_usuarios.keys()):
+                user = request.form['username']
+                if request.form['password'] in info_usuarios[user]['password']:
+                    print("acceso\n")
+                    i = '0'
+                    return redirect('/profile/%s' % request.form['username'])
+                else:
+                    print("error contra\n")
+                    return redirect('/')
+            else:
+                print("no encontrado")
+                return redirect('/')
+    return render_template("/login.html")
 
 
 @app.route('/categorias', methods=['POST', 'GET'])
@@ -98,8 +111,12 @@ def profile(username):
     user = None
     if username in info_usuarios:
         user = info_usuarios[username]
-        print(info_usuarios[username])
-    return render_template("profile.html", username=username, user=user)
+        print("\n")
+        lista = []
+        for i in info_usuarios[username]['juegos']:
+            if info_usuarios[username]['juegos'][i] != ' 0':
+                lista.append(i)
+    return render_template('sugerencias.html', juegos_rec=lista, juegos=juegos)
 
 
 if __name__ == '__main__':
